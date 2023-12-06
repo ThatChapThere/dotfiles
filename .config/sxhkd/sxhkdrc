@@ -1,0 +1,76 @@
+# terminal
+super + Return
+	kitty
+
+# fullscreen
+super + f
+	bspc node --state ~fullscreen
+# rofi
+super + d
+	rofi -show run
+
+# toggle polybar
+super + b
+	polybar-msg cmd toggle > /dev/null
+
+# selecting a window
+super + j
+	bspc node --focus west
+super + k
+	bspc node --focus south
+super + l
+	bspc node --focus north
+super + semicolon
+	bspc node --focus east
+
+# moving windows
+super + shift + j
+	bspc node --swap west
+super + shift + k
+	bspc node --swap south
+super + shift + l
+	bspc node --swap north
+super + shift + semicolon
+	bspc node --swap east
+
+# closing windows 
+super + shift + q
+	bspc node focused.window -c
+
+# desktops
+super + u
+	bspc desktop --focus Terminal
+super + i
+	bspc desktop --focus Code
+super + o
+	bspc desktop --focus Browser
+super + p
+	bspc desktop --focus Configs
+super + m
+	bspc desktop --focus Media
+super + comma
+	bspc desktop --focus Social
+
+# moving windows between desktops
+super + shift + u
+	bspc node --to-desktop Terminal
+super + shift + i
+	bspc node --to-desktop Code
+super + shift + o
+	bspc node --to-desktop Browser
+super + shift + p
+	bspc node --to-desktop Configs
+super + shift + m
+	bspc node --to-desktop Media
+super + shift + comma
+	bspc node --to-desktop Social
+
+# volume and brightness
+XF86AudioLowerVolume
+	amixer set Master 2%-
+XF86AudioRaiseVolume
+	amixer set Master 2%+
+XF86MonBrightnessDown
+	xbacklight -dec 1
+XF86MonBrightnessUp
+	xbacklight -inc 1
