@@ -7,8 +7,9 @@
 
 # aliases
 alias ls='eza -l'
-alias cat=lolcat
-alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias cat='bat --paging=never'
+alias more='bat --paging=always'
+alias dotfiles-git='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # exports
 # \[ and \] begin and end a non printing escape section
@@ -21,10 +22,12 @@ alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 # The current value actually uses the default terminal colours so that we can nicely use kitty themes
 export PS1='\[\e[35m\][\[\e[36m\]\u@\h \[\e[33m\]\w\[\e[35m\]]$\[\e[m\] \[$(tput sgr0)\]'
 export EDITOR=vim
-export PAGER=most
+export MANPAGER="sh -c 'col -bx | bat -p -f --language=manpage'"
+export MANROFFOPT='-c' # Prevents the syntax highlighting from breaking on man pages
+export BAT_THEME='Tomorrow-Night'
 
 # binds
-bind 'set completion-ignore-case on'
+#bind 'set completion-ignore-case on'
 
 # Created by `pipx` on 2023-10-24 07:15:52
 export PATH="$PATH:/home/tim/.local/bin"
