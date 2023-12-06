@@ -10,6 +10,7 @@ alias ls='eza -l'
 alias cat='bat --paging=never'
 alias more='bat --paging=always'
 alias dotfiles-git='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dotfiles-git-add='dotfiles-git update-index --again'
 
 # exports
 # \[ and \] begin and end a non printing escape section
