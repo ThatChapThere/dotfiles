@@ -4,7 +4,7 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set copyindent
-set colorcolumn=120
+set colorcolumn=83
 set cursorline
 set hidden
 set hlsearch  
@@ -30,15 +30,15 @@ set nowrap
 filetype plugin indent on
 au BufRead,BufNewFile *.nlogo set filetype=netlogo
 
-set background=dark
-color Tomorrow-Night
+set t_Co=16
+color base16-tomorrow-night
+set t_md=
 syntax on
 
-hi! Normal ctermbg=none
-hi! link CursorLineNr Type
-hi! link ColorColumn CursorLine
+hi! CursorLineNr cterm=NONE
 
 noremap <space> :
 vnoremap <space> :
 
-cabbrev q qa
+"cabbrev q qa
+abbrev sp vsp

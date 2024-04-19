@@ -19,7 +19,7 @@ syntax match PreProc '#define'
 hi def link userDefinedType Type
 hi def link userDefinedClass Type
 hi def link classNamespace Type
-hi def link userDefinedVariable Identifier
+"hi def link userDefinedVariable Identifier
 hi def link regularNamespace Constant
 
 " Highlight additional keywords in the comments

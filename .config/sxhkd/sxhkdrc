@@ -7,7 +7,7 @@ super + f
 	bspc node --state ~fullscreen
 # rofi
 super + d
-	rofi -show run
+	rofi -font "source code pro 13" -show run
 
 # toggle polybar
 super + b
@@ -37,33 +37,48 @@ super + shift + semicolon
 super + shift + q
 	bspc node focused.window -c
 
+# shutting down
+super + shift + x
+	shutdown 0
+# rebooting
+super + shift + ctrl + x
+	shutdown -r 0
+
 # desktops
 super + u
-	bspc desktop --focus Terminal
+	bspc desktop --focus Browser
 super + i
 	bspc desktop --focus Code
 super + o
-	bspc desktop --focus Browser
+	bspc desktop --focus Run
 super + p
-	bspc desktop --focus Configs
+	bspc desktop --focus LaTeX
 super + m
-	bspc desktop --focus Media
+	bspc desktop --focus Terminals
 super + comma
-	bspc desktop --focus Social
+	bspc desktop --focus Spotify
+super + period
+	bspc desktop --focus Discord
+super + slash
+	bspc desktop --focus Misc
 
 # moving windows between desktops
 super + shift + u
-	bspc node --to-desktop Terminal
+	bspc node --to-desktop Browser
 super + shift + i
 	bspc node --to-desktop Code
 super + shift + o
-	bspc node --to-desktop Browser
+	bspc node --to-desktop Run
 super + shift + p
-	bspc node --to-desktop Configs
+	bspc node --to-desktop LaTeX
 super + shift + m
-	bspc node --to-desktop Media
+	bspc node --to-desktop Terminals
 super + shift + comma
-	bspc node --to-desktop Social
+	bspc node --to-desktop Spotify
+super + shift + period
+	bspc node --to-desktop Discord
+super + shift + slash
+	bspc node --to-desktop Misc
 
 # volume and brightness
 XF86AudioLowerVolume
@@ -74,3 +89,7 @@ XF86MonBrightnessDown
 	xbacklight -dec 1
 XF86MonBrightnessUp
 	xbacklight -inc 1
+
+# screenshots
+Print
+	scrot -f -s -F 'screenshots/%a%d%b%g.png' -e 'xclip -selection clipboard -t image/png -i $f'

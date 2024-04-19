@@ -6,11 +6,29 @@
 [[ $- != *i* ]] && return
 
 # aliases
-alias ls='eza -l'
+alias ls='eza -l -s=extension --group-directories-first'
+alias sl='ls | rev'
 alias cat='bat --paging=never'
 alias more='bat --paging=always'
 alias dotfiles-git='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias dotfiles-git-add='dotfiles-git update-index --again'
+alias latexmk='latexmk -pvc -pdf -interaction=nonstopmode -shell-escape'
+alias winmount='sudo mount /dev/nvme0n1p1 /winboot'
+alias tree='eza --tree --git-ignore --group-directories-first'
+
+latexedit () {
+	if [ -f $1.tex ]; then
+		bspc node -d Terminals;
+		kitty vim $1.tex& sleep 0.5;
+		bspc node -d LaTeX;
+		zathura $1.pdf& sleep 0.5;
+		bspc node -d LaTeX;
+		bspc desktop -f LaTeX;
+		latexmk $1.tex
+	else
+		echo 'file not found'
+	fi
+}
 
 # exports
 # \[ and \] begin and end a non printing escape section
@@ -25,10 +43,7 @@ export PS1='\[\e[35m\][\[\e[36m\]\u@\h \[\e[33m\]\w\[\e[35m\]]$\[\e[m\] \[$(tput
 export EDITOR=vim
 export MANPAGER="sh -c 'col -bx | bat -p -f --language=manpage'"
 export MANROFFOPT='-c' # Prevents the syntax highlighting from breaking on man pages
-export BAT_THEME='Tomorrow-Night'
-
-# binds
-#bind 'set completion-ignore-case on'
+export BAT_THEME='base16'
 
 # Created by `pipx` on 2023-10-24 07:15:52
 export PATH="$PATH:/home/tim/.local/bin"

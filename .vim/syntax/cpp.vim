@@ -22,7 +22,7 @@ syntax match PreProc '#pragma once'
 hi def link userDefinedType Type
 hi def link userDefinedClass Type
 hi def link classNamespace Type
-hi def link userDefinedVariable Identifier
+"hi def link userDefinedVariable Identifier
 hi def link regularNamespace Constant
 
 " C++ attributes {{{1
